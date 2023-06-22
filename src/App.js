@@ -2,6 +2,8 @@ import './App.css';
 import { useLocation } from 'react-router-dom';
 import CharacterGrid from "./CharacterGrid";
 
+
+
 function App() {
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
