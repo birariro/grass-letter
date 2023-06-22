@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/birariro/grass-letter/static/css/main.48915491.css",
+    "main.js": "/birariro/grass-letter/static/js/main.e154ea4a.js",
+    "index.html": "/birariro/grass-letter/index.html",
+    "main.48915491.css.map": "/birariro/grass-letter/static/css/main.48915491.css.map",
+    "main.e154ea4a.js.map": "/birariro/grass-letter/static/js/main.e154ea4a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.48915491.css",
+    "static/js/main.e154ea4a.js"
+  ]
+}
