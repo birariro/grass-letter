@@ -15,13 +15,13 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
+  /*background-color: #282c34;*/
+  /*min-height: 100vh;*/
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*align-items: center;*/
+  /*justify-content: center;*/
+  /*color: white;*/
 
 }
 
@@ -35,9 +35,31 @@
 }
 .black {
   background-color: black;
+  margin-right: 3px;
 }
-.green {
-  background-color: green;
+
+
+.green-1 {
+  background-color: #066D32;
+  margin-right: 3px;
+}
+.green-2 {
+  background-color: #26A641;
+  margin-right: 3px;
+}
+.green-3 {
+  background-color: #3CD353;
+  margin-right: 3px;
+}
+
+.row{
+  padding: 0px;
+  margin: 0px;
+}
+.character-grid{
+  padding: 0px;
+  margin: 0px;
+
 }
 @keyframes App-logo-spin {
   from {

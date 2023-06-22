@@ -1,49 +1,63 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { CharToBinary } from "./CharToBinary";
 import './App.css';
+const CharacterGrid = (props) => {
 
-const CharacterGrid = () => {
-    const [userInput, setUserInput] = useState('');
+    const text = props.text;
+
+    useEffect(() => {
+        drawCharacter(text)
+    }, [text]);
+
     const [characterGrid, setCharacterGrid] = useState([]);
 
-    const handleInputChange = (event) => {
-        setUserInput(event.target.value);
-    };
+    const randomGreenStyleClassName = () => {
+        const min = 1;
+        const max = 3;
+        return "green-"+(Math.floor(Math.random() * (max - min + 1)) + min);
+    }
 
-    const drawCharacter = () => {
-        const inputs = userInput.toUpperCase();
+    const drawCharacter = (text) => {
+        const inputs = text.toUpperCase();
         const grid = [];
 
-        for (const input of inputs) {
-            const characterRows = CharToBinary(input);
-            console.log(characterRows);
+        let rows = [];
+        for (let i = 0; i < 5; i++) { //새로
+            let row = [];
+            for (let rows = 0; rows < inputs.length; rows++) {
+                const characterRows = CharToBinary(inputs[rows]);
 
-            const rows = [];
-            for (let i = 0; i < characterRows.length; i++) {
-                const row = [];
-                for (let j = 0; j < characterRows[i].length; j++) {
-                    if (characterRows[i][j] === "1") {
-                        row.push(<div className="box green" key={`${i}-${j}`} />);
+                //마지막 이라면 한줄띄기 제거
+                const columnsSize = (rows === inputs.length-1) ? 5 : 6;
+
+                for (let columns = 0; columns < columnsSize; columns++) { //가로
+                    if (characterRows[i][columns] === "1") {
+                        const classNameParam = "box "+randomGreenStyleClassName()
+                        console.log(classNameParam)
+                        row.push(<div className={classNameParam} key={`${rows}-${columns}`} />);
                     } else {
-                        row.push(<div className="box black" key={`${i}-${j}`} />);
+                        row.push(<div className="box black" key={`${rows}-${columns}`} />);
                     }
                 }
-                rows.push(<div className="row" key={`${input}-${i}`}>{row}</div>);
             }
-
-            grid.push(...rows);
+            rows.push(<div className="row" key={i}>{row}</div>);
         }
 
+        grid.push(<div className="character-grid" key={inputs}>{rows}</div>);
         setCharacterGrid(grid);
     };
 
     return (
         <div>
-            <input type="text" value={userInput} onChange={handleInputChange} />
-            <button onClick={drawCharacter}>그리기</button>
-            <div id="characterGrid">{characterGrid}</div>
+            <div className="character-container">
+                {characterGrid}
+            </div>
         </div>
     );
 }
 
 export default CharacterGrid;
+
+
+
+
